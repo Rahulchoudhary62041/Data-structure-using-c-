@@ -1,0 +1,889 @@
+Question 1: PROGRAM TO SEARCH AN ELEMENT USING LINEAR SEARCH IN C.
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a[100],n,i,item,loc=-1;
+clrscr();
+printf("\nEnter the number of element:");
+scanf("%d",&n);
+printf("Enter the number:\n");
+for(i=0;i<=n-1;i++)
+   {
+     scanf("%d",&a[i]);
+   }
+printf("Enter the no. to be search\n");
+scanf("%d",&item);
+for(i=0;i<=n-1;i++)
+   {
+    if(item==a[i])
+      {
+       loc=i;
+       break;
+     }
+   }
+if(loc>=0)
+
+
+printf("\n%dis found in position%d",item,loc+1);
+else
+printf("\nItem does not exits");
+getch();
+  }
+
+ 
+Question 2: PROGRAM TO SEARCH AN ELEMENT USING BINARY SEARCH IN C
+
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+void main()
+{
+int a[100],i,loc,mid,beg,end,n,flag=0,item;
+clrscr();
+printf("How many elements");
+scanf("%d",&n);
+printf("Enter the element of the array\n");
+for(i=0;i<=n-1;i++)
+{
+scanf("%d",&a[i]);
+}
+printf("Enter the element to be searching\n");
+scanf("%d",&item);
+loc=0;
+beg=0;
+end=n-1;
+while((beg<=end)&&(item!=a[mid]))
+{
+     mid=((beg+end)/2);
+       if(item==a[mid])
+       {
+       printf("search is successfull\n");
+loc=mid;
+printf("position of the item%d\n",loc+1);
+flag=flag+1;
+}
+if(item<a[mid])
+end=mid-1;
+else
+beg=mid+1;
+}
+if(flag==0)
+{
+printf("search is not successfull\n");
+}
+getch();
+}
+ 
+Question 3: PROGRAM FOR MATRIX OPERATION IN C 
+
+Coding:-
+matrix multiplication
+
+#include<stdio.h>
+#include<conio.h>
+void main( )
+     {
+      int a[2][2], b[2][2],s[2][2];
+      int i,j,k;
+     clrscr();
+       printf("Enter first matrix:\n" );
+    for( i=1;i<=2;i++)
+    {
+      for( j=1;j<=2;j++)
+      {
+       printf("Enter%d%d\n",i,j);
+       scanf("%d",&a[i][j]);
+      }
+    }
+printf("Enter second matrix:\n");
+    for(i=1;i<=2;i++)
+    {
+       for(j=1;j<=2;j++)
+       {
+        printf("Enter %d%d\n",i,j);
+        scanf("%d",&b[i][j]);
+      }
+    }
+for(i=1;i<=2;i++)
+{
+  for(j=1;j<=2;j++)
+    {
+    s[i][j]=0;
+      for(k=1;k<=2;k++)
+{
+   s[i][j] =s[i][j]+a[i][k]*b[k][j];
+}
+}
+}
+printf("Matrix Multiplication Is: \n");
+for(i=1;i<=2;i++)
+   {
+     for (j=1;j<=2;j++)
+       {
+      printf("%d\n",s[i][j]);
+       }
+    }
+getch();
+}
+
+ 
+matrix addition
+#include<stdio.h>
+#include<conio.h>
+void main ( )
+{
+      int a[2][2],b[2][2],s[2][2],i,j;
+      clrscr ();
+      printf("enter first matrix: \n");
+            for ( i=1; i<=2; i++)
+            {
+               for ( j=1; j<=2; j++)
+                 {
+                  printf("Enter %d%d", i,j, "element:");
+                  scanf("%d",&a[i][j]);
+                 }
+            }
+      printf("enter second matrix: \n");
+            for(i=1;i<=2;i++)
+            {
+              for(j=1; j<=2;j++)
+              {
+                printf( "enter %d%d",i + 1 ,j + 1 , "element:");
+                scanf("%d",&b[i][j]) ;
+              }
+            }
+      for (i=1;i<=2;i++)
+      {
+        for (j=1;j<=2;j++)
+           {
+s[i][j]= a[i][j]+b[i][j];
+}
+      }
+printf("The addition matrix is:\n");
+     for (i=1;i<=2;i++)
+     {
+       for (j=1;j<=2;j++)
+       {
+        printf("%d\n",s[i][j] );
+       }
+     }
+                 getch ();
+                   }
+ 
+transpose of a matrix
+#include<stdio.h>
+# include<conio.h>
+void main()
+{
+int a[10][10],b[10][10],i,j,m,n;
+clrscr();
+printf("Enter the order of the matrix\n");
+printf("No. of rows : \n");
+scanf("%d",&n);
+printf("No. of columns :\n ");
+scanf("%d",&m);
+printf("Enter the matrix elements\n");
+      for(i=0;i<=n-1;i++)
+        {
+         for(j=0;j<=m-1;j++)
+         {
+          scanf("%d\n",&a[i][j]);
+          b[j][i] = a[i][j];
+         }
+       }
+printf("Matrix A was\n ");
+      for(i=0;i<=n-1;i++)
+      {
+        for(j=0;j<=m-1;j++)
+        {
+          printf("%d\n",a[i][j]);
+        }
+      }
+printf("Transpose of matrix A is \n");
+      for(i=0;i<=m-1;i++)
+       {
+         for(j=0;j<=n-1;j++)
+         {
+        printf("%d\n",b[i][j]);
+         }
+      }
+getch( );
+   }
+ 
+
+Question 4: PROGRAM TO IMPLEMENT BINARY SEARCH TREE IN C
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+struct rec
+{
+long num;
+struct rec *left;
+struct rec *right;
+};
+struct rec *tree,*second,*head;
+struct rec *insert(struct rec *tree,long num);
+struct rec *copy(struct rec *tree);
+void inorder(struct rec *tree);
+main()
+{
+int choice;
+long digit;
+do
+{
+choice=select();
+switch(choice)
+{
+case 1:puts("Enter integers:To quit enter 0");
+      scanf("%ld",&digit);
+      while(digit!=0)
+      {
+      tree=insert(tree,digit);
+      scanf("%ld",&digit);
+      }continue;
+case 2: copy(tree);continue;
+case 3: puts("Inorder traversing TREE");
+      inorder(tree);continue;
+case 4: puts("END");exit(0);
+}
+}while(choice!=4);
+}
+int select()
+{
+int selection;
+do
+{
+puts("Enter 1: Insert a node in the BST");
+puts("Enter 2: Copy a tree to another BST");
+puts("Enter 3: Display(inorder)the BST");
+puts("Enter 4: END");
+puts("Enter your choice");
+scanf("%d",&selection);
+if((selection<1)||(selection>4))
+{puts("Wrong choice: Try again");
+getchar();
+}
+}while((selection<1)||(selection>4));
+return selection;
+}
+struct rec *insert(struct rec *tree,long digit)
+{
+if(tree==NULL)
+{
+tree=(struct rec *)malloc(sizeof(struct rec));
+tree->left=tree->right=NULL;
+tree->num=digit;
+}
+else
+if(digit<tree->num)
+tree->left=insert(tree->left,digit);
+else if(digit>tree->num)
+tree->right=insert(tree->right,digit);
+else if(digit==tree->num)
+{puts("Duplicate nodes: program exited");exit(0);
+}
+return(tree);
+}
+struct rec *copy(struct rec *tree)
+{
+second=(struct rec *)malloc(sizeof(struct rec));
+head=second;
+if(tree!=NULL)
+{
+second->num=tree->num;
+if(tree->left!=NULL)
+{
+second->left->num=tree->left->num;
+copy(tree->right);
+}
+if(tree->right!=NULL)
+{
+second->right->num=tree->num;
+copy(tree->left);
+}
+}
+return(head);
+}
+void inorder(struct rec *tree)
+{
+if(tree!=NULL)
+{
+inorder(tree->left);
+printf("%12ld\n",tree->num);
+inorder(tree->right);
+}
+}
+ 
+Question 5: PROGRAM TO IMPLEMENT LINKED LIST IN C
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+#include<malloc.h>
+struct node
+{
+int info;
+struct node *next;
+};
+typedef struct node NODE;
+NODE *start;
+void createmptylist(NODE **start)
+{
+*start=(NODE *)NULL;
+}
+void traversinorder(NODE *start)
+{
+while(start != (NODE *) NULL)
+{
+printf("%d\n",start->info);
+start=start->next;
+}
+}
+void insertatbegin(int item)
+{
+NODE *ptr;
+ptr=(NODE *)malloc(sizeof(NODE));
+ptr->info=item;
+if(start==(NODE *)NULL)
+ptr->next=(NODE *)NULL;
+else
+ptr->next=start;
+start=ptr;
+}
+void insert_at_end(int item)
+{
+NODE *ptr,*loc;
+ptr=(NODE *)malloc(sizeof(NODE));
+ptr->info=item;
+ptr->next=(NODE *)NULL;
+if(start==(NODE*)NULL)
+start=ptr;
+else
+{
+loc=start;
+while(loc->next!=(NODE *)NULL)
+loc=loc->next;
+loc->next=ptr;
+}
+}
+void insert_spe(NODE *start,int item)
+{
+NODE *ptr,*loc;
+int temp,k;
+for(k=0,loc=start;k<temp;k++)
+{
+loc=loc->next;
+if(loc==NULL)
+{
+printf("node in the list at less than one\n");
+return;
+}
+}
+ptr=(NODE *)malloc(sizeof(NODE));
+ptr->info=item;
+ptr->next=loc->next;;
+loc->next=ptr;
+}
+void main()
+{
+int choice,item,after;
+char ch;
+clrscr();
+createmptylist(start);
+do
+{
+printf("1.Insert element at begin \n");
+printf("2. insert element at end positon\n");
+printf("3. insert specific the position\n");
+printf("4.travers the list in order\n");
+printf("5. exit\n");
+printf("enter your choice\n");
+scanf("%d",&choice);
+switch(choice)
+{
+case 1: printf("Enter the item\n");
+      scanf("%d",&item);
+      insertatbegin(item);
+      break;
+case 2: printf("Enter the item\n");
+      scanf("%d",&item);
+insert_at_end(item);
+      break;
+case 3: printf("Enter the item\n");
+      scanf("%d",&item);
+      insert_spe(start,item);
+      break;
+case 4: printf("\ntravers the list\n");
+      traversinorder(start);
+      break;
+case 5: return;
+}
+fflush(stdin);
+printf("do your want continous\n");
+scanf("%c",&ch);
+}while((ch='y')||(ch='y'));
+getch();
+}
+ 
+Question 6: PROGRAM TO IMPLEMENT QUEUE AS LINKEDLIST IN C
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+struct queue
+{
+int no;
+struct queue *next;
+}
+*start=NULL;
+void add();
+int del();
+void traverse();
+void main()
+{
+int ch;
+char choice;
+do
+}
+clrscr();
+printf("----1. add\n");
+printf("----2. delete\n");
+printf("----3. traverse\n");
+printf("----4. exit\n");
+printf("Enter your choice\n");
+scanf("%d",&ch);
+switch(ch)
+{
+case 1: add();
+break;
+case 2: printf("the delete element is\n%d",del());
+break;
+case 3: traverse();
+break;
+case 4: return;
+default : printf("wrong choice\n");
+};
+fflush(stdin);
+scanf("%c",&choice);
+}
+while(choice!=4);
+}
+void add()
+{
+struct queue *p,*temp;
+temp=start;
+p=(struct queue*)malloc(sizeof(struct queue));
+printf("Enter the data");
+scanf("%d",&p->no);
+p->next=NULL;
+if(start==NULL)
+{
+start=p;
+}
+else
+{
+while(temp->next!=NULL)
+{
+temp=temp->next;
+}
+temp->next=p;
+}
+}
+int del()
+{
+struct queue *temp;
+int value;
+if(start==NULL)
+{
+printf("queue is empty");
+getch();
+return(0);
+}
+else
+{
+temp=start;
+value=temp->no;
+start=start->next;
+free(temp);
+}
+return(value);
+}
+void traverse()
+{
+struct queue *temp;
+temp=start;
+while(temp->next!=NULL)
+{
+printf("no=%d",temp->no);
+temp=temp->next;
+}
+printf("no=%d",temp->no);
+getch();
+}
+ 
+Question 7: PROGRAM TO IMPLEMENT STACK USING ARRAY IN C
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+#define MAXSIZE 10
+void push();
+int pop();
+void traverse();
+int stack[MAXSIZE];
+int Top=-1;
+void main()
+{
+ int choice;
+ char ch;
+ do
+clrscr();
+    printf("\n1. PUSH ");
+    printf("\n2. POP ");
+    printf("\n3. TRAVERSE ");
+    printf("\nEnter your choice");
+    scanf("%d",&choice);
+    switch(choice)
+     {
+       case 1: push();
+            break;
+       case 2: printf("\nThe deleted element is %d",pop());
+            break;
+       case 3: traverse();
+            break;
+       default: printf("\nYou Entered Wrong Choice");
+       }
+    printf("\nDo You Wish To Continue (Y/N)");
+    fflush(stdin);
+    scanf("%c",&ch);
+    }
+ while(ch=='Y' || ch=='y');
+}
+void push()
+{
+ int item;
+ if(Top == MAXSIZE - 1)
+  {
+    printf("\nThe Stack Is Full");
+    getch();
+    exit(0);
+    }
+ else
+  {
+    printf("Enter the element to be inserted");
+    scanf("%d",&item);
+    Top= Top+1;
+    stack[Top] = item;
+    }
+}
+int pop()
+{
+ int item;
+ if(Top == -1)
+  {
+    printf("The stack is Empty");
+    getch();
+    exit(0);
+    }
+ else
+   {
+    item = stack[Top];
+    Top = Top-1;
+    }
+return(item);
+void traverse()
+{
+ int i;
+ if(Top == -1)
+  {
+    printf("The Stack is Empty");
+    getch();
+    exit(0);
+    }
+ else
+  {
+    for(i=Top;i>=0;i--)
+     {
+      printf("Traverse the element");
+       printf("\n%d",stack[i]);
+       }
+    }
+}
+	
+ 
+Question 8: PROGRAM TO IMPLEMENT STACK AS LINKED LIST
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+struct stack
+{
+int no;
+struct stack *next;
+}
+*start=NULL;
+typedef struct stack st;
+void push();
+int pop();
+void display();
+void main()
+{
+char ch;
+int choice,item;
+do
+{
+clrscr();
+printf("\n 1: push");
+printf("\n 2: pop");
+printf("\n 3: display");
+printf("\n Enter your choice");
+scanf("%d",&choice);
+switch (choice)
+{
+case 1: push();
+break;
+case 2: item=pop();
+printf("The delete element in %d",item);
+break;
+case 3: display();
+break;
+default : printf("\n Wrong choice");
+};
+printf("\n do you want to continue(Y/N)");
+fflush(stdin);
+scanf("%c",&ch);
+}
+while (ch=='Y'||ch=='y');
+}
+void push()
+{
+st *node;
+node=(st *)malloc(sizeof(st));
+printf("\n Enter the number to be insert");
+scanf("%d",&node->no);
+node->next=start;
+start=node;
+}
+int pop()
+{
+st *temp;
+temp=start;
+if(start==NULL)
+{
+printf("stack is already empty");
+getch();
+exit();
+}
+else
+{
+start=start->next;
+free(temp);
+}
+return(temp->no);
+}
+void display()
+{
+st *temp;
+temp=start;
+while(temp->next!=NULL)
+{
+printf("\nno=%d",temp->no);
+temp=temp->next;
+}
+printf("\nno=%d",temp->no);    
+} 
+
+Question 9: PROGRAM TO CONVERT AN INFIX TO POSTFIX EXPRESSION IN C
+Coding:-
+#include<conio.h>
+#include<stdio.h>
+#include<string.h>
+char stack[50];
+int top=-1;
+void in_to_post(char infix[]);
+void push (char);
+char pop();
+void main()
+{
+char infx[25];
+printf("Enter the infix expression");
+gets(infx);
+in_to_post(infx);
+getch();
+}
+void push (char symb)
+{
+if (top>=49)
+{
+printf("stack overflow");
+getch();
+return;
+}
+else
+{
+top=top+1;
+stack[top]=symb;
+}
+}
+char pop()
+{
+char item;
+if(top==-1)
+{
+printf("stack empty");
+getch();
+return(0);
+}
+else
+{
+item=stack[top];
+top--;
+}
+return(item);
+}
+int preced(char ch)
+{
+if(ch==47)
+{
+return(5);
+}
+else
+if(ch==42)
+{
+return(4);
+}
+else if(ch==43)
+{
+return(3);
+}
+else
+return(2);
+}
+void in_to_post(char infix[])
+{
+int length;
+static int index=0,pos=0;
+char symbol,temp;
+char postfix[40];
+length=strlen(infix);
+push('#');
+while(index<length)
+{
+symbol=infix[index];
+switch(symbol)
+{
+case'(':push(symbol);
+break;
+case')' :temp=pop();
+while(temp!='(')
+{
+postfix[pos]=temp;
+pos++;
+temp=pop();
+}
+break;
+case '+' :
+case '-' :
+case '*' :
+case '/' :
+case '^' :
+while (preced(stack[top])>=preced(symbol))
+{
+temp=pop();
+postfix[pos]=temp;
+pos++;
+}
+push(symbol);
+break;
+default : postfix[pos++]=symbol;
+break;
+}
+index++;
+}
+while(top>0)
+{
+temp=pop();
+postfix[pos++]=temp;
+}
+postfix[pos++]='\0';
+puts(postfix);
+return;
+}
+ 
+Question 10: PROGRAM TO EVALUATION OF POSTFIX EXPRESSION IN C
+Coding:-
+#include<stdio.h>
+#include<conio.h>
+float stack[10];
+int top=-1;
+void push(char);
+float pop();
+float eval(char [],float[]);
+void main()
+{
+int i=0;
+char suffix[20];
+float value[20],result;
+clrscr();
+printf("Enter a valid postfix expression\t");
+gets(suffix);
+while (suffix[i]!='\0')
+{
+if(isalpha(suffix[i]))
+{
+fflush(stdin);
+printf("\nEnter the value of %c",suffix[i]);
+scanf("%f",&value[i]);
+}
+i++;
+}
+result=eval(suffix,value);
+
+printf("The result of %s=%f",suffix,result);
+getch();
+}
+float eval(char suffix[],float data[])
+{
+int i=0;
+float op1,op2,res;
+char ch;
+while(suffix[i]!='\0')
+{
+ch=suffix[i];
+if(isalpha(suffix[i]))
+{
+push(data[i]);
+}
+else
+{
+op2=pop();
+op1=pop();
+switch(ch)
+{
+case '+' : push(op1+op2);
+break;
+case '-' : push(op1-op2);
+break;
+case '*' : push(op1+op2);
+break;
+case '/' :push(op1/op2);
+break;
+case '^' : push(pow(op1,op2));
+break;
+}
+}
+i++;
+}
+res=pop();
+return(res);
+}
+void push(char num)
+{
+top=top+1;
+stack[top]=num;
+}
+float pop()
+{
+float num;
+num=stack[top];
+top=top-1;
+return(num);
+}
